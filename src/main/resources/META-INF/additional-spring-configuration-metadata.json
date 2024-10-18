@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "telegram.token",
+      "type": "java.lang.String",
+      "description": "Description for telegram.token."
+    }
+  ]
+}

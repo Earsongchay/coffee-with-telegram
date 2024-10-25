@@ -81,12 +81,12 @@ public class MyController {
         var b = bookedRepo.save(booked);
         String message = String.format(
                 "Dear %s, Thank you for booking a table with us at [Your Restaurant's Name]! We're excited to have you. 🥂😊" +
-                        "\n🆔 Order ID: %d" +
-                        "\n🙋‍♀️ Name: %s" +
-                        "\n☎️ Phone Number: %s" +
-                        "\n📧 Email: %s" +
-                        "\n📅 Date: %s at %s" +
-                        "\n🙂 Number of Guests: %s",
+                        "\nOrder ID: %d" +
+                        "\n Name: %s" +
+                        "\n Phone Number: %s" +
+                        "\n Email: %s" +
+                        "\n Date: %s at %s" +
+                        "\n Number of Guests: %s",
                 b.getName(),
                 b.getId(),
                 b.getName(),

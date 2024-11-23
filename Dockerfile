@@ -1,14 +1,8 @@
-# Use a lightweight Java runtime as the base image
-FROM openjdk:17-jdk-slim
+FROM gradle:8.3.0-jdk17 AS build
+COPY . .
+RUN gradle clean build -x test
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy the built JAR file into the container
-COPY build/libs/coffee-with-telegram-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose the port required by Render
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /home/gradle/build/libs/coffee-with-telegram-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Command to run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
